@@ -14,7 +14,8 @@ if (!global.hasOwnProperty('db')) {
   } else {
     // the application is executed on the local machine ... use mysql
     sequelize = new Sequelize('db.sqlite', '', '', {
-      dialect: "sqlite"
+      dialect: "sqlite",
+      storage: 'data.db'
     })
   }
 
