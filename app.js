@@ -5,7 +5,7 @@
 
 var express = require('express')
   , routes = require('./routes')
-  , user = require('./routes/user')
+  , api = require('./routes/api')
   , http = require('http')
   , path = require('path')
   , db = require('./models');
@@ -33,10 +33,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', routes.index);
 
-
-var api = require('./routes/user');
-
-app.use('/users', user);
+app.use('/api', api);
 
 
 db.sequelize.sync().then(function() {
@@ -44,3 +41,4 @@ db.sequelize.sync().then(function() {
     console.log('Express server listening on port ' + app.get('port'));
   });
 })
+
