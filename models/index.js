@@ -22,14 +22,16 @@ if (!global.hasOwnProperty('db')) {
   global.db = {
     Sequelize: Sequelize,
     sequelize: sequelize,
-    User:      sequelize.import(__dirname + '/user') 
-    // add your other models here
+    User:      sequelize.import(__dirname + '/user'),
+    Task:      sequelize.import(__dirname + '/task')
   }
 
   /*
     Associations can be defined here. E.g. like this:
     global.db.User.hasMany(global.db.SomethingElse)
   */
+
+  global.db.Task.belongsTo( global.db.User )
 }
 
 module.exports = global.db
