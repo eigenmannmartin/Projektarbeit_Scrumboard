@@ -8,6 +8,7 @@
 
 		#main-board { 
 			height: 100%;
+			margin-right: 0px;
 		}
 
 		#main-board div {
