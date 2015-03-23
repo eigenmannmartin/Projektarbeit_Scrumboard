@@ -45,7 +45,7 @@ define([
 		load: function(){
 
 			this.collections = {
-				tickets : mTasks.Collection,
+				tasks : mTasks.Collection,
 				users : mUsers.Collection,
 			};
 
@@ -53,7 +53,6 @@ define([
 		},
 
 		start: function(){
-
 			// just for global reference
 			this.router = this;
 
@@ -72,7 +71,7 @@ define([
 			};
 
 
-			this.listenTo( this.collections.tickets, 'change', this.updateTasks );
+			this.listenTo( this.collections.tasks, 'change', this.updateTasks );
 			this.listenTo( this.collections.users, 'change', this.updateUsers );
 
 

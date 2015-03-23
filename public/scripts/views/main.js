@@ -1,9 +1,13 @@
 define([
     'backbone',
+    'underscore',
+    'views/task',
     'text!templates/main.tpl'
 ],
 function(
     Backbone,
+    _,
+    vTask,
     tMain
 
 ){
@@ -15,13 +19,25 @@ function(
         events : {},
 
         initialize: function( options ){
+            var self = this;
+            self.childs = Array();
             this.collections = options.collections;
+            this.collections.tasks.each( function(e){
+                self.childs.push( new vTask({ task: e }) )
+            });
+
+            this.render();
+
         },
         
         render: function(){
+            var self = this;
             this.$el.empty();
-            this.$el.append( tMain );
+            this.$el.append( template({
+                'tasks': self.childs
+            }));
             this.$el.show();
+
             return this;
         },
     });
