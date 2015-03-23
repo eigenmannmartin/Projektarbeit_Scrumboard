@@ -14,12 +14,11 @@ function(
 
         initialize: function( options ){
             this.collections = options.collections;
-            this.listenTo( this.collections.tickets, 'sync', this.add );
         },
         
         render: function(){
             this.$el.empty();
-            this.$el.append( "" );
+            this.$el.append( "main" );
             this.$el.show();
             return this;
         },

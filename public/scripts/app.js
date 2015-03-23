@@ -3,8 +3,9 @@ define([
 	'notify',
 	'underscore',
 	'backbone',
-	'text!templates/main.tpl',
+	'text!templates/app.tpl',
 	'views/main',
+	'views/nav',
 	'models/task',
 	'models/user'
 ], function (
@@ -14,6 +15,7 @@ define([
 	A,
 	tplApp,
 	vMain,
+	vNav,
 	mTasks,
 	mUsers
 ){
@@ -60,24 +62,24 @@ define([
 			this.$el.show();
 
 			this.el = {
-				navi : $( 'nav' ),
+				navi : $( '#nav' ),
 				main : $( '#main' ),
 			};
 
 			this.childs = {
-				navi : null, //new vNav( this.el.navi, this.collections ),
+				navi : new vNav( {el: this.el.navi, collections: this.collections} ),
 				main : null,
 			};
 
 
-			this.listenTo( this.collections.tickets, 'change', this.updateTickets );
+			this.listenTo( this.collections.tickets, 'change', this.updateTasks );
 			this.listenTo( this.collections.users, 'change', this.updateUsers );
 
 
 			return true;
 			
 		},
-		updateTickets: function(){
+		updateTasks: function(){
 		},
 		updateUsers: function(){
 		}
