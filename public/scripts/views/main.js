@@ -1,12 +1,14 @@
 define([
     'backbone',
+    'text!templates/main.tpl'
 ],
 function(
-    Backbone
+    Backbone,
+    tMain
 
 ){
     'use strict';
-    //var template = _.template(TemplateMain);
+    var template = _.template( tMain );
 
     var MainView = Backbone.View.extend({
         display:'',
@@ -18,7 +20,7 @@ function(
         
         render: function(){
             this.$el.empty();
-            this.$el.append( "main" );
+            this.$el.append( tMain );
             this.$el.show();
             return this;
         },
