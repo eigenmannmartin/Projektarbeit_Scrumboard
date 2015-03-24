@@ -16,6 +16,48 @@ router.route('/user/:user_id').
     	});
     });
 
+router.route('/setup').
+    get(function(req, res, next) {
+        console.log( "asdf" )
+        var data = [
+            {"username": "7221", "first_name": "Shannon", "last_name": "Grant"},
+            {"username": "2234", "first_name": "Russo", "last_name": "Castro"},
+            {"username": "5749", "first_name": "York", "last_name": "Sweeney"},
+            {"username": "6836", "first_name": "Mullins", "last_name": "Lopez"},
+            {"username": "4571", "first_name": "Griffin", "last_name": "Alston"},
+            {"username": "5045", "first_name": "Trujillo", "last_name": "Roberson"},
+            {"username": "4383", "first_name": "Dillard", "last_name": "Torres"},
+            {"username": "6990", "first_name": "Clay", "last_name": "Hale"},
+            {"username": "4942", "first_name": "Cortez", "last_name": "Andrews"},
+            {"username": "7055", "first_name": "Palmer", "last_name": "Richardson"},
+            {"username": "8016", "first_name": "Mcmahon", "last_name": "Burgess"},
+            {"username": "9685", "first_name": "Mack", "last_name": "Walls"},
+            {"username": "7251", "first_name": "Salazar", "last_name": "Terry"},
+            {"username": "7185", "first_name": "Patel", "last_name": "Elliott"},
+            {"username": "6715", "first_name": "Hunt", "last_name": "Hawkins"},
+            {"username": "8382", "first_name": "Snider", "last_name": "Solis"},
+            {"username": "9064", "first_name": "Wiley", "last_name": "Berry"},
+            {"username": "2192", "first_name": "Terrell", "last_name": "Boone"},
+            {"username": "6151", "first_name": "Hood", "last_name": "Kaufman"},
+            {"username": "9697", "first_name": "Page", "last_name": "Cross"},
+            {"username": "3222", "first_name": "Burris", "last_name": "Kirkland"},
+            {"username": "9798", "first_name": "Solomon", "last_name": "Macias"},
+            {"username": "9253", "first_name": "Barber", "last_name": "Wiggins"},
+            {"username": "7115", "first_name": "Mcmahon", "last_name": "Warner"},
+            {"username": "9918", "first_name": "Hopkins", "last_name": "Blevins"},
+            {"username": "5634", "first_name": "Lindsey", "last_name": "Chase"},
+            {"username": "7307", "first_name": "Vincent", "last_name": "Bush"},
+            {"username": "7049", "first_name": "Church", "last_name": "Stevens"},
+            {"username": "3302", "first_name": "Banks", "last_name": "Frank"},
+            {"username": "6761", "first_name": "Tyson", "last_name": "Leonard"},
+            {"username": "9738", "first_name": "Goodwin", "last_name": "Hall"}
+        ];
+
+        data.forEach( function( user ){
+            db.User.create({ username: user['username'], first_name: user['first_name'], last_name: user['last_name'] })
+        });
+    });
+
 
 router.route('/task').
     get(function(req, res, next) {
