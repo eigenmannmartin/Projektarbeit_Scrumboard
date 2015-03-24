@@ -18,8 +18,10 @@ router.route('/user/:user_id').
 
 router.route('/setup').
     get(function(req, res, next) {
-        console.log( "asdf" )
-        var data = [
+
+        //db.sequelize.sync({force: true})
+        
+        var users = [
             {"username": "7221", "first_name": "Shannon", "last_name": "Grant"},
             {"username": "2234", "first_name": "Russo", "last_name": "Castro"},
             {"username": "5749", "first_name": "York", "last_name": "Sweeney"},
@@ -53,9 +55,23 @@ router.route('/setup').
             {"username": "9738", "first_name": "Goodwin", "last_name": "Hall"}
         ];
 
-        data.forEach( function( user ){
+        users.forEach( function( user ){
             db.User.create({ username: user['username'], first_name: user['first_name'], last_name: user['last_name'] })
         });
+
+        var tasks = [
+            {"title": "Update Design", "desc": "The Design looks ugly, we need a newer, fancier one.", "user": 2, "difficulty": "2", "state": "todo"},
+            {"title": "Fancy Animations", "desc": "We need fancy animations.", "user": 8, "difficulty": "8", "state": "progress"},
+            {"title": "Update Contacts", "desc": "Implement a real contacts page", "user": 9, "difficulty": "2", "state": "progress"},
+            {"title": "Update About", "desc": "Write something nice about this project in the about page", "user": 1, "difficulty": "3", "state": "progress"},
+            {"title": "Public this Project", "desc": "Make it publicly acessible via heroku", "user": 5, "difficulty": "5", "state": "done"}
+        ];
+
+        tasks.forEach( function( task ){
+            db.Task.create({ title: task['title'], description: task['desc'], UserId: task['user'], difficulty: task['difficulty'], state: task['state'] })
+        });
+
+        res.json( "ok" );
     });
 
 

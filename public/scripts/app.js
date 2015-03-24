@@ -70,18 +70,9 @@ define([
 				main : null,
 			};
 
-
-			this.listenTo( this.collections.tasks, 'change', this.updateTasks );
-			this.listenTo( this.collections.users, 'change', this.updateUsers );
-
-
 			return true;
 			
 		},
-		updateTasks: function(){
-		},
-		updateUsers: function(){
-		}
 	});
 	return Router;
 });
