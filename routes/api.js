@@ -16,6 +16,24 @@ router.route('/user/:user_id').
     	});
     });
 
+
+router.route('/reset').
+    get(function(req, res, next) {
+        db.User.findAll().then(function(result){ 
+            result.forEach( function( user ){
+                user.destroy();
+            }); 
+        });
+
+        db.Task.findAll().then(function(result){ 
+            result.forEach( function( task ){
+                task.destroy();
+            }); 
+        })
+
+        res.json( "ok" );
+    });
+
 router.route('/setup').
     get(function(req, res, next) {
 
@@ -55,10 +73,6 @@ router.route('/setup').
             {"username": "9738", "first_name": "Goodwin", "last_name": "Hall"}
         ];
 
-        users.forEach( function( user ){
-            db.User.create({ username: user['username'], first_name: user['first_name'], last_name: user['last_name'] })
-        });
-
         var tasks = [
             {"name": "Update Design", "desc": "The Design looks ugly, we need a newer, fancier one.", "user": 2, "difficulty": "2", "state": "todo"},
             {"name": "Fancy Animations", "desc": "We need fancy animations.", "user": 8, "difficulty": "8", "state": "progress"},
@@ -67,6 +81,12 @@ router.route('/setup').
             {"name": "Public this Project", "desc": "Make it publicly acessible via heroku", "user": 5, "difficulty": "5", "state": "done"}
         ];
 
+
+        users.forEach( function( user ){
+            db.User.create({ username: user['username'], first_name: user['first_name'], last_name: user['last_name'] })
+        });
+        
+            
         tasks.forEach( function( task ){
             db.Task.create({ name: task['name'], description: task['desc'], UserId: task['user'], difficulty: task['difficulty'], state: task['state'] })
         });
