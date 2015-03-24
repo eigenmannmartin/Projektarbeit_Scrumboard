@@ -30,9 +30,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 
-app.get('/', routes.index);
+
 
 app.use('/api', api);
+app.get('/*', routes.index);
 //app.use('/auth', auth);
 
 
@@ -53,9 +54,10 @@ passport.use(new LocalStrategy(
   }
 ));
 
-/*db.User.create({ username: 'eim', first_name: 'Martin', last_name: "Eigenmann" })
-db.Task.create({ name: 't2', description: 'first task', difficulty: 2, UserId: 1})
-db.Task.create({ name: 't1', description: 'second task', difficulty: 5, UserId: 1})
+/*db.User.create({ username: 'seb', first_name: 'Reto', last_name: "Humbold" })
+db.User.create({ username: 'eim', first_name: 'Martin', last_name: "Eigenmann" })
+db.Task.create({ name: 't2', description: 'first task', difficulty: "2", UserId: 1})
+db.Task.create({ name: 't1', description: 'second task', difficulty: "5", UserId: 1})
 *///db.Task.findAll().then( function(result){console.log(result)})
 
 

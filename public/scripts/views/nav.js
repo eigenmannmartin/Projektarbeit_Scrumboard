@@ -17,25 +17,23 @@ function(
         },
 
         initialize: function( options ){
-            this.collections = options.collections;
-            this.$el = options.el;
             this.render();
         },
 
         link: function( args ){
             if( args.currentTarget.hash == '' ){
-                console.log( "Home" );
+                return false;
             }
 
             if( args.currentTarget.hash == '#about' ){
-                console.log( "About" );
+                alert("Das ist eine Projektarbeit und nicht für die produktive Verwendung gedacht.")
+                return false;
             }
 
             if( args.currentTarget.hash == '#contact' ){
-                console.log( "Contact" );
+                alert("Github: eigenmannmartin")
+                return false;
             }
-
-            args.preventDefault();
         },
         
         render: function(){
