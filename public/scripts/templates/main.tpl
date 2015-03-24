@@ -18,7 +18,7 @@
 	</style>
 	<div class="row" id="main-board">
 		<div class="col-md-3" id="icebox">
-		
+	
 		</div>
 		<div class="col-md-3" id="todo">
 

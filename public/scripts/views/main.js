@@ -20,24 +20,27 @@ function(
 
         initialize: function( options ){
             var self = this;
-            self.childs = Array();
             this.collections = options.collections;
-            this.collections.tasks.each( function(e){
-                self.childs.push( new vTask({ task: e }) )
-            });
-
             this.render();
+
+            this.boards = Array()
+            this.boards.icebox = this.$el.find("#icebox");
+            this.boards.todo = this.$el.find("#todo");
+            this.boards.work = this.$el.find("#work");
+            this.boards.done = this.$el.find("#done");  
+            
+            
+            
+            this.collections.tasks.each( function(e){
+                new vTask({ boards: self.boards, task: e });
+            });
 
         },
         
         render: function(){
-            var self = this;
             this.$el.empty();
-            this.$el.append( template({
-                'tasks': self.childs
-            }));
+            this.$el.append( template() );
             this.$el.show();
-
             return this;
         },
     });

@@ -29,7 +29,7 @@ define([
 		},
 
 		URLmain: function(){
-			this.setMainView( new vMain( {collections: this.collections} ) );
+			this.setMainView( new vMain( { el: this.cel.main, collections: this.collections} ) );
 		},
 
 
@@ -60,13 +60,13 @@ define([
 			this.$el.html( template() );
 			this.$el.show();
 
-			this.el = {
+			this.cel = {
 				navi : $( '#nav' ),
 				main : $( '#main' ),
 			};
 
 			this.childs = {
-				navi : new vNav( {el: this.el.navi, collections: this.collections} ),
+				navi : new vNav( {el: this.cel.navi, collections: this.collections} ),
 				main : null,
 			};
 
