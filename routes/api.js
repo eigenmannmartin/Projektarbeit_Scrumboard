@@ -68,7 +68,7 @@ router.route('/setup').
         ];
 
         tasks.forEach( function( task ){
-            db.Task.create({ title: task['title'], description: task['desc'], UserId: task['user'], difficulty: task['difficulty'], state: task['state'] })
+            db.Task.create({ name: task['name'], description: task['desc'], UserId: task['user'], difficulty: task['difficulty'], state: task['state'] })
         });
 
         res.json( "ok" );
