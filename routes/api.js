@@ -60,11 +60,11 @@ router.route('/setup').
         });
 
         var tasks = [
-            {"title": "Update Design", "desc": "The Design looks ugly, we need a newer, fancier one.", "user": 2, "difficulty": "2", "state": "todo"},
-            {"title": "Fancy Animations", "desc": "We need fancy animations.", "user": 8, "difficulty": "8", "state": "progress"},
-            {"title": "Update Contacts", "desc": "Implement a real contacts page", "user": 9, "difficulty": "2", "state": "progress"},
-            {"title": "Update About", "desc": "Write something nice about this project in the about page", "user": 1, "difficulty": "3", "state": "progress"},
-            {"title": "Public this Project", "desc": "Make it publicly acessible via heroku", "user": 5, "difficulty": "5", "state": "done"}
+            {"name": "Update Design", "desc": "The Design looks ugly, we need a newer, fancier one.", "user": 2, "difficulty": "2", "state": "todo"},
+            {"name": "Fancy Animations", "desc": "We need fancy animations.", "user": 8, "difficulty": "8", "state": "progress"},
+            {"name": "Update Contacts", "desc": "Implement a real contacts page", "user": 9, "difficulty": "2", "state": "progress"},
+            {"name": "Update About", "desc": "Write something nice about this project in the about page", "user": 1, "difficulty": "3", "state": "progress"},
+            {"name": "Public this Project", "desc": "Make it publicly acessible via heroku", "user": 5, "difficulty": "5", "state": "done"}
         ];
 
         tasks.forEach( function( task ){
