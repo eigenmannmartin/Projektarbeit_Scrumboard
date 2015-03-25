@@ -6,7 +6,6 @@
 var express = require('express')
   , routes = require('./routes')
   , api = require('./routes/api')
-  , auth = require('./routes/auth')
   , http = require('http')
   , path = require('path')
   , db = require('./models')
