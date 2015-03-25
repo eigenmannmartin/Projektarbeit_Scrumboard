@@ -9,7 +9,7 @@
 
 ## Begründungen
 
-Sequelize wurde verwendet, um Serverseitig eine Persistenz implementieren zu können. So kann in der Entwicklungsumgebung eine sqlite und auf Heroku eine postgres Datenbank verwendet werden.
+Sequelize wurde verwendet, um serverseitig eine Persistenz implementieren zu können. So kann in der Entwicklungsumgebung eine sqlite und auf Heroku eine postgres Datenbank verwendet werden.
 
 # Client
 
